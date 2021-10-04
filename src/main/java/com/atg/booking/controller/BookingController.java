@@ -1,19 +1,25 @@
 package com.atg.booking.controller;
 
 import com.atg.booking.model.Booking;
-import lombok.AllArgsConstructor;
+import com.atg.booking.service.BookingService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collections;
 import java.util.List;
 
 @RestController
-@AllArgsConstructor
 public class BookingController {
+
+    private final BookingService bookingService;
+
+    // Dependency injected bean
+    public BookingController(BookingService bookingService) {
+        this.bookingService = bookingService;
+    }
 
     @PostMapping("/booking")
     public Booking bookTime() {
-        return Booking.builder().build();
+        return bookingService.bookTime();
     }
 
     @DeleteMapping("/booking/{id}")

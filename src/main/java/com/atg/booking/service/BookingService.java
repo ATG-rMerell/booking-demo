@@ -1,9 +1,11 @@
 package com.atg.booking.service;
 
-import lombok.AllArgsConstructor;
+import com.atg.booking.model.Booking;
 import org.springframework.stereotype.Service;
 
 @Service
-@AllArgsConstructor
 public class BookingService {
+    public Booking bookTime() {
+        return Booking.builder().build();
+    }
 }
