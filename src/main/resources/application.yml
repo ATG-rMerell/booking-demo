@@ -1,17 +1,8 @@
 spring:
   application:
     name: atg-booking
-  jackson:
-    default-property-inclusion: non_null
-    deserialization:
-      adjust-dates-to-context-time-zone: false
-      fail-on-unknown-properties: false
-    serialization:
-      fail-on-empty-beans: false
-      indent_output: false
-      write-dates-as-timestamps: false
   flyway:
-    enabled: false
+    enabled: true
     clean-on-validation-error: true
     locations: classpath:db/migration
     user: ${spring.datasource.username}
@@ -30,6 +21,6 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.H2Dialect
-        default_schema: ${spring.flyway.user}
+        default_schema: ''
 server:
   port: 8081
