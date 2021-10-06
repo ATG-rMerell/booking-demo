@@ -6,6 +6,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class BookingService {
     public Booking bookTime() {
-        return Booking.builder().build();
+        return Booking.builder().id(1).build();
     }
 }
