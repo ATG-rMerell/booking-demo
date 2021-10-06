@@ -12,13 +12,14 @@ import java.util.Optional;
 @Repository
 @Transactional
 public interface BookingRepository extends CrudRepository<Booking, Long> {
+    Booking save(Booking booking);
+
     /*
      * Example Queries, both returning the same result
      *
      * First one using built in JPA queries
      * Second one using a custom query
      * */
-
     Optional<Booking> findBookingById(Long id);
 
     @Query("SELECT b from Booking b where b.id = :id")
