@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import java.time.Instant;
+import java.time.LocalDateTime;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -26,8 +26,13 @@ class BookingRepositoryTest {
      * */
     @Test
     void createBooking() {
-        Instant time = Instant.now();
-        Booking booking = Booking.builder().id(1L).time(time).timeSlot(TimeSlot.MORNING).booked(1).build();
+        LocalDateTime time = LocalDateTime.now();
+        Booking booking = Booking.builder()
+                .id(1L)
+                .time(time)
+                .timeSlot(TimeSlot.MORNING)
+                .laundryRoomId(1)
+                .build();
         bookingRepository.save(booking);
 
         Optional<Booking> bookingById = bookingRepository.findBookingById(1L);
@@ -35,5 +40,6 @@ class BookingRepositoryTest {
         assertEquals(booking.getBooked(), bookingById.get().getBooked());
         assertEquals(booking.getId(), bookingById.get().getId());
         assertEquals(booking.getTimeSlot(), bookingById.get().getTimeSlot());
+        assertEquals(booking.getLaundryRoomId(), bookingById.get().getLaundryRoomId());
     }
 }

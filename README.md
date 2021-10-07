@@ -32,4 +32,4 @@ In the **Controller layer**, to be able to book a time, there is a need to input
 
 We also might use a [@PathVariable](https://www.baeldung.com/spring-pathvariable#a-simple-mapping) if we simply want to pass an ID through the request.
 
-
+For the **Repository section** we use a library called [JPA](https://spring.io/guides/gs/accessing-data-jpa/)

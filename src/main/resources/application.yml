@@ -9,7 +9,7 @@ spring:
     password: ${spring.datasource.password}
   datasource:
     driver-class-name: org.h2.Driver
-    url: jdbc:h2:mem:testdb;;DB_CLOSE_DELAY=-1;Mode=Oracle
+    url: jdbc:h2:mem:testdb;;DB_CLOSE_DELAY=-1;Mode=MYSQl
     username: sa
     password:
   jpa:
